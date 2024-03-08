@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "familiarweapons",
+  "version": "${version}",
+  "name": "Familiar Weapons",
+  "description": "Adds some equipment that may be familiar to you",
+  "authors": [
+    "Partonetrain"
+  ],
+  "contact": {
+    "homepage": "https://fabricmc.net/",
+    "sources": "https://github.com/FabricMC/fabric-example-mod"
+  },
+  "license": "MIT",
+  "icon": "assets/familiarweapons/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "info.partonetrain.familiarweapons.fabric.ExampleModFabric"
+    ]
+  },
+  "mixins": [
+    "familiarweapons.mixins.json",
+    "familiarweapons-common.mixins.json"
+  ],
+  "depends": {
+    "fabric": "*",
+    "minecraft": ">=1.20.1",
+    "architectury": ">=9.1.12"
+  }
+}

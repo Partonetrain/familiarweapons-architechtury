@@ -16,7 +16,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "info.partonetrain.familiarweapons.fabric.ExampleModFabric"
+      "info.partonetrain.familiarweapons.fabric.FamiliarWeaponsFabric"
     ]
   },
   "mixins": [

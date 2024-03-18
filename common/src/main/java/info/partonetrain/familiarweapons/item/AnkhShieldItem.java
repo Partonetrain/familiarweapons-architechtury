@@ -1,5 +1,8 @@
 package info.partonetrain.familiarweapons.item;
 
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -14,6 +17,9 @@ import java.util.Collection;
 public class AnkhShieldItem extends ShieldItem {
     public AnkhShieldItem(Properties properties) {
         super(properties);
+        ItemProperties.register(this, new ResourceLocation("blocking"), (itemStack, clientLevel, livingEntity, i) -> {
+            return livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack ? 1.0F : 0.0F;
+        });
     }
 
     @Override
@@ -26,12 +32,25 @@ public class AnkhShieldItem extends ShieldItem {
                         li.removeEffect(effect.getEffect());
                     }
                 }
+
+                if(li.isOnFire()){
+                    li.extinguishFire();
+                }
             }
         }
     }
 
     @Override
     public boolean isValidRepairItem(ItemStack stack, ItemStack repairCandidate) {
-        return repairCandidate.is(Items.OBSIDIAN) || super.isValidRepairItem(stack, repairCandidate);
+        return repairCandidate.is(Items.OBSIDIAN);
+    }
+
+    public void damageOnBlock(ItemStack stack, float damage, LivingEntity victim, DamageSource source){
+        if(source != null &&
+                damage >= ShieldItem.MINIMUM_DURABILITY_DAMAGE && //3.0f
+                victim.isDamageSourceBlocked(source))
+        {
+            stack.hurtAndBreak((int) damage, victim, entity -> entity.broadcastBreakEvent(EquipmentSlot.OFFHAND));
+        }
     }
 }

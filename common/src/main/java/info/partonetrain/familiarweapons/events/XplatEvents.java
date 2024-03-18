@@ -1,0 +1,37 @@
+package info.partonetrain.familiarweapons.events;
+
+import dev.architectury.event.EventResult;
+import dev.architectury.event.events.common.EntityEvent;
+import info.partonetrain.familiarweapons.item.AnkhShieldItem;
+import info.partonetrain.familiarweapons.item.EliteSwordItem;
+import info.partonetrain.familiarweapons.registry.FWItems;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.item.ItemStack;
+
+public class XplatEvents {
+
+    public static void init(){
+        EntityEvent.LIVING_HURT.register(XplatEvents::onLivingHurt);
+    }
+
+    public static EventResult onLivingHurt(LivingEntity victim, DamageSource source, float damage)
+    {
+        ItemStack victimStack = victim.getUseItem();
+        if (victimStack.getItem() instanceof AnkhShieldItem ankh && victim.isBlocking())
+        {
+            ankh.damageOnBlock(victimStack, damage, victim, source);
+        }
+
+        if(source.getEntity() instanceof LivingEntity attacker){
+            ItemStack attackerMainhand = attacker.getItemBySlot(EquipmentSlot.MAINHAND);
+            if(attackerMainhand.is(FWItems.ELITE_SWORD.get())){
+                EliteSwordItem.hurtEnemyIgnoreArmor(attackerMainhand, victim, attacker);
+            }
+        }
+
+
+        return EventResult.pass();
+    }
+}

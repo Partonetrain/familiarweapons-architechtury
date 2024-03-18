@@ -1,4 +1,6 @@
 {
-  "itemGroup.familiarweapons.group": "Familiar Weapons"
+  "itemGroup.familiarweapons.tab": "Familiar Weapons",
+  "item.familiarweapons.ankh_shield": "Ankh Shield",
+  "item.familiarweapons.elegant_reaper_scythe": "Elegant Reaper's Scythe"
 
 }

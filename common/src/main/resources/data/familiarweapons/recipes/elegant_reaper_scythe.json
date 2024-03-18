@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "##W",
+    " N ",
+    "/  "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:nether_brick"
+    },
+    "W": {
+      "item": "minecraft:wither_skeleton_skull"
+    },
+    "N": {
+      "item": "minecraft:netherite_hoe"
+    },
+    "/": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "familiarweapons:elegant_reaper_scythe"
+  }
+}

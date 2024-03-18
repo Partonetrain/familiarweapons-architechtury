@@ -5,6 +5,9 @@ import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrarManager;
 import dev.architectury.registry.registries.RegistrySupplier;
+import info.partonetrain.familiarweapons.events.XplatEvents;
+import info.partonetrain.familiarweapons.registry.FWDispenserBehavior;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -16,23 +19,17 @@ import java.util.function.Supplier;
 
 public class FamiliarWeapons {
     public static final String MOD_ID = "familiarweapons";
-    // We can use this if we don't want to use DeferredRegister
-    public static final Supplier<RegistrarManager> REGISTRIES = Suppliers.memoize(() -> RegistrarManager.get(MOD_ID));
-
-    // Registering a new creative tab
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(MOD_ID, Registries.CREATIVE_MODE_TAB);
     public static final RegistrySupplier<CreativeModeTab> MAIN_TAB = TABS.register("tab", () ->
             CreativeTabRegistry.create(Component.translatable("itemGroup." + MOD_ID + ".tab"),
                     () -> new ItemStack(FWItems.ANKH_SHIELD.get())));
-    
-    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(MOD_ID, Registries.ITEM);
-    //ITEMS.reg
 
-    
     public static void init() {
         TABS.register();
-        ITEMS.register();
-        
-        //System.out.println(ExampleExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
+        FWItems.ITEMS.register();
+
+        XplatEvents.init();
+
+        System.out.println(ExampleExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
     }
 }

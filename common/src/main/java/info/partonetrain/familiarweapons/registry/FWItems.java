@@ -5,15 +5,9 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import info.partonetrain.familiarweapons.FamiliarWeapons;
 import info.partonetrain.familiarweapons.item.AnkhShieldItem;
 import info.partonetrain.familiarweapons.item.ElegantReaperScytheItem;
-import info.partonetrain.familiarweapons.item.EliteSwordItem;
-import net.minecraft.Util;
-import net.minecraft.core.Position;
+import info.partonetrain.familiarweapons.item.PlasmaSwordItem;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.entity.projectile.Projectile;
-import net.minecraft.world.entity.projectile.ThrownEgg;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.DispenserBlock;
 
 public class FWItems {
 
@@ -24,7 +18,7 @@ public class FWItems {
 
         public static final RegistrySupplier<Item> ANKH_SHIELD = ITEMS.register("ankh_shield", () -> new AnkhShieldItem(FW_DEFAULT_PROPERTIES));
         public static final RegistrySupplier<Item> ELEGANT_REAPER_SCYTHE = ITEMS.register("elegant_reaper_scythe", () -> new ElegantReaperScytheItem(Tiers.NETHERITE, 7, -3.2f, FW_NETHERITE_PROPERTIES));
-        public static final RegistrySupplier<Item> ELITE_SWORD = ITEMS.register("elite_sword", () -> new EliteSwordItem(Tiers.DIAMOND, 3, -1.8f, FW_DEFAULT_PROPERTIES));
+        public static final RegistrySupplier<Item> ELITE_SWORD = ITEMS.register("plasma_sword", () -> new PlasmaSwordItem(Tiers.DIAMOND, 3, -2.4f, FW_DEFAULT_PROPERTIES));
 
 
 }

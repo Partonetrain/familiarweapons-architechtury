@@ -2,8 +2,9 @@ package info.partonetrain.familiarweapons.events;
 
 import dev.architectury.event.EventResult;
 import dev.architectury.event.events.common.EntityEvent;
+import info.partonetrain.familiarweapons.FamiliarWeapons;
 import info.partonetrain.familiarweapons.item.AnkhShieldItem;
-import info.partonetrain.familiarweapons.item.EliteSwordItem;
+import info.partonetrain.familiarweapons.item.PlasmaSwordItem;
 import info.partonetrain.familiarweapons.registry.FWItems;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -27,7 +28,11 @@ public class XplatEvents {
         if(source.getEntity() instanceof LivingEntity attacker){
             ItemStack attackerMainhand = attacker.getItemBySlot(EquipmentSlot.MAINHAND);
             if(attackerMainhand.is(FWItems.ELITE_SWORD.get())){
-                EliteSwordItem.hurtEnemyIgnoreArmor(attackerMainhand, victim, attacker);
+                PlasmaSwordItem.hurtEnemyIgnoreArmor(attackerMainhand, victim, attacker);
+            }
+            if(FamiliarWeapons.BetterCombatInstalled){
+                ItemStack attackerOffhand = attacker.getItemBySlot(EquipmentSlot.OFFHAND);
+                PlasmaSwordItem.hurtEnemyIgnoreArmor(attackerOffhand, victim, attacker);
             }
         }
 

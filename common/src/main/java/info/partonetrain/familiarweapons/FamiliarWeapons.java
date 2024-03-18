@@ -24,6 +24,8 @@ public class FamiliarWeapons {
             CreativeTabRegistry.create(Component.translatable("itemGroup." + MOD_ID + ".tab"),
                     () -> new ItemStack(FWItems.ANKH_SHIELD.get())));
 
+    public static boolean BetterCombatInstalled;
+
     public static void init() {
         TABS.register();
         FWItems.ITEMS.register();

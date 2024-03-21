@@ -27,7 +27,7 @@ public class XplatEvents {
 
         if(source.getEntity() instanceof LivingEntity attacker){
             ItemStack attackerMainhand = attacker.getItemBySlot(EquipmentSlot.MAINHAND);
-            if(attackerMainhand.is(FWItems.ELITE_SWORD.get())){
+            if(attackerMainhand.is(FWItems.PLASMA_SWORD.get())){
                 PlasmaSwordItem.hurtEnemyIgnoreArmor(attackerMainhand, victim, attacker);
             }
             if(FamiliarWeapons.BetterCombatInstalled){

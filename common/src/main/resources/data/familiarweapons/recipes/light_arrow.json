@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "i",
+    "a"
+  ],
+  "key": {
+    "i": {
+      "item": "minecraft:lantern"
+    },
+    "a": {
+      "item": "minecraft:spectral_arrow"
+    }
+  },
+  "result": {
+    "item": "familiarweapons:light_arrow"
+  }
+}

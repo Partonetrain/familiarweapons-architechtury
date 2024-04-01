@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "oro",
+    "rsr"
+  ],
+  "key": {
+    "r": {
+      "item": "minecraft:red_wool"
+    },
+    "o": {
+      "item": "minecraft:orange_wool"
+    },
+    "s": {
+      "item": "minecraft:sugar"
+    }
+  },
+  "result": {
+    "item": "familiarweapons:urgent_glove"
+  }
+}

@@ -3,10 +3,7 @@ package info.partonetrain.familiarweapons.registry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import info.partonetrain.familiarweapons.FamiliarWeapons;
-import info.partonetrain.familiarweapons.item.AnkhShieldItem;
-import info.partonetrain.familiarweapons.item.ElegantReaperScytheItem;
-import info.partonetrain.familiarweapons.item.LightArrowItem;
-import info.partonetrain.familiarweapons.item.PlasmaSwordItem;
+import info.partonetrain.familiarweapons.item.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.*;
 
@@ -20,9 +17,8 @@ public class FWItems {
 
         public static final RegistrySupplier<Item> ANKH_SHIELD = ITEMS.register("ankh_shield", () -> new AnkhShieldItem(FW_DEFAULT_PROPERTIES));
         public static final RegistrySupplier<Item> ELEGANT_REAPER_SCYTHE = ITEMS.register("elegant_reaper_scythe", () -> new ElegantReaperScytheItem(Tiers.NETHERITE, 7, -3.2f, FW_NETHERITE_PROPERTIES));
-        public static final RegistrySupplier<Item> PLASMA_SWORD = ITEMS.register("plasma_sword", () -> new PlasmaSwordItem(Tiers.DIAMOND, 3, -2.4f, FW_DEFAULT_PROPERTIES));
         public static final RegistrySupplier<Item> LIGHT_ARROW = ITEMS.register("light_arrow", () -> new LightArrowItem(FW_STACKABLE_PROPERTIES));
-
-
+        public static final RegistrySupplier<Item> PLASMA_SWORD = ITEMS.register("plasma_sword", () -> new PlasmaSwordItem(Tiers.DIAMOND, 3, -2.4f, FW_DEFAULT_PROPERTIES));
+        public static final RegistrySupplier<Item> URGENT_GLOVE = ITEMS.register("urgent_glove", () -> new UrgentGloveItem(Tiers.STONE, 3, -1f, FW_DEFAULT_PROPERTIES));
 
 }

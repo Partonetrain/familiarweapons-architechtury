@@ -8,8 +8,9 @@
     "Partonetrain"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/Partonetrain/familiarweapons-architechtury",
+		"sources": "https://github.com/Partonetrain/familiarweapons-architechtury",
+		"email": "Train@violetmoon.org"
   },
   "license": "MIT",
   "icon": "assets/familiarweapons/icon.png",

@@ -1,5 +1,8 @@
 package info.partonetrain.familiarweapons.item;
 
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -12,16 +15,21 @@ public class PlasmaSwordItem extends SwordItem {
         super(tier, attackDamageModifier, attackSpeedModifier, properties);
     }
 
-    public static boolean hurtEnemyIgnoreArmor(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if(!target.level().isClientSide()){
-            target.hurt(target.level().damageSources().generic(), (float) attacker.getAttributeValue(Attributes.ATTACK_DAMAGE));
+    public static void pierceArmor(LivingEntity attacker, ItemStack stack, InteractionHand hand, Entity target) {
+        if(!attacker.level().isClientSide()){
+            target.hurt(attacker.level().damageSources().generic(), (float) attacker.getAttributeValue(Attributes.ATTACK_DAMAGE));
             //generic should be in #bypasses_armor
             //no knockback is intentional, but it would be done here.
         }
-        stack.hurtAndBreak(1, attacker, (livingEntity) -> {
-            livingEntity.broadcastBreakEvent(EquipmentSlot.MAINHAND);
-        });
-
-        return true;
+        if(hand == InteractionHand.MAIN_HAND){
+            stack.hurtAndBreak(1, attacker, (livingEntity) -> {
+                livingEntity.broadcastBreakEvent(EquipmentSlot.MAINHAND);
+            });
+        }
+        else if(hand == InteractionHand.OFF_HAND){
+            stack.hurtAndBreak(1, attacker, (livingEntity) -> {
+                livingEntity.broadcastBreakEvent(EquipmentSlot.OFFHAND);
+            });
+        }
     }
 }

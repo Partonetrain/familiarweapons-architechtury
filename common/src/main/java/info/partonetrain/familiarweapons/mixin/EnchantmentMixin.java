@@ -28,7 +28,7 @@ public abstract class EnchantmentMixin {
             cir.setReturnValue(this.category == EnchantmentCategory.WEAPON);
         }
         else if(stack.getItem() instanceof PlasmaSwordItem){
-            cir.setReturnValue(!(this.getDescriptionId().contains("knockback")));
+            cir.setReturnValue(this.category == EnchantmentCategory.WEAPON && !(this.getDescriptionId().contains("knockback")));
         }
     }
 }

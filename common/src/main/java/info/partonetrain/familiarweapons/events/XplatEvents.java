@@ -33,7 +33,7 @@ public class XplatEvents {
             if(attackerMainhand.is(FWItems.PLASMA_SWORD.get())){
                 PlasmaSwordItem.pierceArmor(attacker, attackerMainhand, InteractionHand.MAIN_HAND, victim);
             }
-            if(attacker instanceof Player player && FamiliarWeapons.BetterCombatInstalled && attackerOffhand.is(FWItems.PLASMA_SWORD.get())){
+            if(attacker instanceof Player && FamiliarWeapons.BetterCombatInstalled && attackerOffhand.is(FWItems.PLASMA_SWORD.get())){
                 //TODO make this only work if plasma sword is the attacking weapon
                 PlasmaSwordItem.pierceArmor(attacker, attackerOffhand, InteractionHand.OFF_HAND, victim);
             }

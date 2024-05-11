@@ -5,6 +5,7 @@ import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import dev.architectury.utils.Env;
+import info.partonetrain.familiarweapons.client.AnkhShieldPredicate;
 import info.partonetrain.familiarweapons.registry.FWEntityRendererRegistry;
 import info.partonetrain.familiarweapons.events.XplatEvents;
 import info.partonetrain.familiarweapons.registry.FWEntityTypes;
@@ -31,6 +32,7 @@ public class FamiliarWeapons {
 
         if(Platform.getEnvironment() == Env.CLIENT){
             FWEntityRendererRegistry.init();
+            AnkhShieldPredicate.init();
         }
     }
 }

@@ -1,5 +1,7 @@
 package info.partonetrain.familiarweapons.item;
 
+import dev.architectury.platform.Platform;
+import net.fabricmc.api.EnvType;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
@@ -17,9 +19,6 @@ import java.util.Collection;
 public class AnkhShieldItem extends ShieldItem {
     public AnkhShieldItem(Properties properties) {
         super(properties);
-        ItemProperties.register(this, new ResourceLocation("blocking"), (itemStack, clientLevel, livingEntity, i) -> {
-            return livingEntity != null && livingEntity.isUsingItem() && livingEntity.getUseItem() == itemStack ? 1.0F : 0.0F;
-        });
     }
 
     @Override

@@ -1,9 +1,5 @@
 package info.partonetrain.familiarweapons.item;
 
-import dev.architectury.platform.Platform;
-import net.fabricmc.api.EnvType;
-import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -23,17 +19,14 @@ public class AnkhShieldItem extends ShieldItem {
 
     @Override
     public void inventoryTick(ItemStack stack, Level level, Entity entity, int slotId, boolean isSelected) {
-        if(!level.isClientSide && entity instanceof LivingEntity li){
+        if(!level.isClientSide() && entity instanceof LivingEntity li && li.isAlive()){
             if(li.getItemBySlot(EquipmentSlot.MAINHAND).is(this) || li.getItemBySlot(EquipmentSlot.OFFHAND).is(this)) {
                 Collection<MobEffectInstance> effects = li.getActiveEffects();
                 for (MobEffectInstance effect : effects) {
                     if (!effect.getEffect().isBeneficial() && !effect.isInfiniteDuration()) {
                         li.removeEffect(effect.getEffect());
+                        return;
                     }
-                }
-
-                if(li.isOnFire()){
-                    li.extinguishFire();
                 }
             }
         }

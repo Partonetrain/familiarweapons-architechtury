@@ -20,7 +20,7 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public class ElegantReaperScytheItem extends HoeItem {
-    //Accepts all enchantments that NETHERITE_SWORD accepts - see EnchantmentHelperMixin
+    //Accepts all enchantments that NETHERITE_SWORD and NETHERITE_HOE accepts - see EnchantmentHelperMixin
     private static final int COOLDOWN = 60;
     public static final int RIGHTCLICK_DURABILITY_DAMAGE = 3;
 

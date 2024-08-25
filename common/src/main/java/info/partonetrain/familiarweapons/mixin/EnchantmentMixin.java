@@ -25,7 +25,7 @@ public abstract class EnchantmentMixin {
     @Inject(method = "canEnchant", at = @At("RETURN"), cancellable = true)
     private void FamiliarWeapons$canEnchant(ItemStack stack, CallbackInfoReturnable<Boolean> cir) {
         if(stack.getItem() instanceof ElegantReaperScytheItem){
-            cir.setReturnValue(this.category == EnchantmentCategory.WEAPON);
+            cir.setReturnValue(this.category == EnchantmentCategory.WEAPON || this.category == EnchantmentCategory.DIGGER);
         }
         else if(stack.getItem() instanceof PlasmaSwordItem){
             cir.setReturnValue(this.category == EnchantmentCategory.WEAPON && !(this.getDescriptionId().contains("knockback")));

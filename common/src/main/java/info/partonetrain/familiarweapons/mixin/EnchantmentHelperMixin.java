@@ -20,7 +20,9 @@ public abstract class EnchantmentHelperMixin {
     @Inject(method = "getAvailableEnchantmentResults", at = @At("RETURN"), cancellable = true)
     private static void FamiliarWeapons$getAvailableEnchantmentResults(int level, ItemStack stack, boolean allowTreasure, CallbackInfoReturnable<List<EnchantmentInstance>> cir) {
         if(stack.getItem() instanceof ElegantReaperScytheItem){
-            cir.setReturnValue(EnchantmentHelper.getAvailableEnchantmentResults(level, Items.NETHERITE_SWORD.getDefaultInstance(), allowTreasure));
+            List<EnchantmentInstance> allowedEnchants = EnchantmentHelper.getAvailableEnchantmentResults(level, Items.NETHERITE_SWORD.getDefaultInstance(), allowTreasure);
+            allowedEnchants.addAll(EnchantmentHelper.getAvailableEnchantmentResults(level, Items.NETHERITE_HOE.getDefaultInstance(), allowTreasure));
+            cir.setReturnValue(allowedEnchants);
         } else if (stack.getItem() instanceof PlasmaSwordItem) {
             List<EnchantmentInstance> availableEnchantments = EnchantmentHelper.getAvailableEnchantmentResults(level, Items.DIAMOND_SWORD.getDefaultInstance(), allowTreasure);
             availableEnchantments.removeIf(ei -> ei.enchantment == Enchantments.KNOCKBACK);
